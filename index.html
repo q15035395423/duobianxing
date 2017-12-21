@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		canvas{
+			border: 1px solid #ccc;
+
+		}
+	</style>
+</head>
+<body>
+	<canvas width="300" height="400">   <!-- 画布 -->
+		替换内容
+	</canvas>
+</body>
+</html>
+<script>
+	let canvas = document.querySelector('canvas');
+	let ctx = canvas.getContext("2d");  //画图环境
+
+	// ctx.fillRect(0,0,100,100); //填充矩形
+	// ctx.strokeRect(100,100,100,100);  //描边矩形
+	// ctx.clearRect(10, 10, 20, 20);  //橡皮擦
+	
+	// ctx.fillRect(50,50,200,200);
+	// ctx.fillStyle = 'green';
+	// ctx.fillRect(75,75,150,150);
+
+	// for(let i = 0;i < 5;i++){
+	// 	for(let j = 0;j < 5;j++){
+	// 		let color = `rgb(${255-51*j},${255-51*i},0)`;
+	// 		ctx.fillStyle = color;
+	// 		ctx.fillRect(60 * j,60 * i,60,60)
+	// 	}
+	// }
+
+	// ctx.arc(150,150,100,0,Math.PI);
+	// ctx.fill();
+	// ctx.arc(0,0,30,0,Math.PI);
+	
+	// ctx.beginPath();
+	// ctx.moveTo(50,50);
+	// ctx.lineTo(250, 50);
+	// ctx.lineTo(250, 250);
+	// ctx.lineTo(50, 250);
+	// ctx.lineTo(50, 50);
+	// ctx.closePath();  //闭合路径
+	// ctx.strokeStyle = 'green';
+	// ctx.stroke();
+	
+
+	let PI = Math.PI;
+	// ctx.beginPath();
+	// ctx.moveTo(250, 150);
+	// ctx.arc(150,150,100,0,2*PI);
+	// ctx.closePath();
+	// ctx.stroke();
+	// ctx.beginPath();
+	// ctx.moveTo(200, 180);	
+	// ctx.arc(150,180,50,0,PI);
+	// ctx.stroke();
+	// ctx.beginPath();
+	// ctx.moveTo(120, 120);	
+	// ctx.arc(100,120,20,0,PI,true);
+	// ctx.stroke();
+	// ctx.beginPath();
+	// ctx.moveTo(220, 120);	
+	// ctx.arc(200,120,20,0,PI,true);
+	// ctx.stroke();
+
+	// for(let i = 0;i < 4;i++){
+	// 	for(let j = 0;j < 3;j++){
+	// 		let x = (j+1)*10 + (2*j+1)*40,
+	// 			y = (i+1)*10 + (2*i+1)*40,
+	// 			color = `rgb(${255-85*i},${255-85*j},0)`;
+	// 			wise = i % 2 == 0? false: true; 
+	// 		ctx.beginPath();
+	// 		ctx.arc(x,y,40,0,PI+PI/2*j,wise);
+
+	// 		if(i > 1){
+	// 			ctx.fillStyle = color;
+	// 			ctx.fill();
+	// 		}else{
+	// 			ctx.strokeStyle = color;
+	// 			ctx.stroke();
+	// 		}
+	// 	}
+	// }
+
+	poly(8);
+	function poly(num){
+		let ang = 2 * Math.PI / num;
+		let r = 100;
+		ctx.beginPath();
+		ctx.moveTo(150+r, 200);
+		for(let i = 0;i < num;i++){
+			let x = 150 + r*Math.cos(ang*i);
+				y = 200 + r*Math.sin(ang*i);
+			ctx.lineTo(x, y);
+		}
+		ctx.closePath();
+		ctx.stroke();
+	}
+</script>
